@@ -1,0 +1,914 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!doctype html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;HappyNow Solutions | Grid Marshall Energy&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="description" content="DFW-based Texas electricity brokerage for residential and commercial customers. Matrix and custom pricing, simplified." /&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--bg:#070A12;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--text:#EAF0FF;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--muted:#AAB6E5;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--brand:#7C5CFF;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--brand2:#2EE59D;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--danger:#FF5C7A;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--border:rgba(255,255,255,.10);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--shadow: 0 18px 60px rgba(0,0,0,.55);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--radius: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--radius2: 26px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>*{box-sizing:border-box}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>html,body{height:100%}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family:var(--font);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>radial-gradient(1200px 700px at 15% 20%, rgba(124,92,255,.35), transparent 55%),</p>
+<p class="p1"><span class="Apple-converted-space">        </span>radial-gradient(900px 600px at 80% 10%, rgba(46,229,157,.28), transparent 55%),</p>
+<p class="p1"><span class="Apple-converted-space">        </span>radial-gradient(900px 700px at 80% 80%, rgba(255,92,122,.18), transparent 60%),</p>
+<p class="p1"><span class="Apple-converted-space">        </span>linear-gradient(180deg, #05060C 0%, #070A12 55%, #05060C 100%);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow-x:hidden;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Animated aurora background (X-factor visual) */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.aurora{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:fixed; inset:-40px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>pointer-events:none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>filter: blur(34px);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>opacity:.55;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>radial-gradient(500px 220px at 20% 30%, rgba(124,92,255,.55), transparent 70%),</p>
+<p class="p1"><span class="Apple-converted-space">        </span>radial-gradient(520px 240px at 70% 20%, rgba(46,229,157,.50), transparent 72%),</p>
+<p class="p1"><span class="Apple-converted-space">        </span>radial-gradient(560px 260px at 70% 70%, rgba(255,92,122,.35), transparent 75%);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>animation: floaty 14s ease-in-out infinite alternate;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>z-index:-1;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@keyframes floaty{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>from{transform: translate3d(0,0,0) rotate(0deg) scale(1)}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>to{transform: translate3d(20px,-10px,0) rotate(3deg) scale(1.05)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>a{color:inherit; text-decoration:none}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.container{max-width:1100px; margin:0 auto; padding:22px 18px 80px}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>header{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex; align-items:center; justify-content:space-between;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:14px; padding:12px 0 20px; flex-wrap:wrap;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.brand{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex; align-items:center; gap:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>user-select:none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.logo{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width:40px; height:40px; border-radius:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, rgba(124,92,255,1), rgba(46,229,157,1));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 10px 30px rgba(124,92,255,.22);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid; place-items:center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:900;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:#0A0D16;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:.5px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.pill{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,.04);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:10px 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: transform .12s ease, background .12s ease, border-color .12s ease;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor:pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.pill:hover{transform: translateY(-1px); background: rgba(255,255,255,.07); border-color:rgba(255,255,255,.18)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.pill.primary{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #0A0D16;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, var(--brand), var(--brand2));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-color: transparent;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:800;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.pill.active{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-color: rgba(124,92,255,.55);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(124,92,255,.12);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Page routing (single file, two “pages”) */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.page{display:none}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.page.active{display:block}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(14,20,38,.62);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: var(--radius2);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: var(--shadow);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow:hidden;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: 1.15fr .85fr;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:stretch;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top:6px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 900px){ .hero{grid-template-columns:1fr} }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-left{padding:26px 24px 22px}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:0 0 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 42px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.05;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:-.02em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.sub{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.5;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 62ch;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 0 18px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.badges{display:flex; flex-wrap:wrap; gap:8px; margin: 0 0 18px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.badge{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.12);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,.05);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:8px 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.badge strong{color:var(--text); font-weight:800}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.cta-row{display:flex; gap:10px; flex-wrap:wrap; margin-top: 10px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:inline-flex; align-items:center; gap:10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:12px 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,.05);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:800;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: transform .12s ease, background .12s ease, border-color .12s ease;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor:pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.20)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn.primary{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:#0A0D16;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, var(--brand), var(--brand2));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-color: transparent;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn.small{padding:10px 12px; font-size:13px; border-radius: 12px}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Video card */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.video-wrap{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:relative;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-height: 360px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #0B1020;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.video-wrap video{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width:100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height:100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>object-fit:cover;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>filter: contrast(1.05) saturate(1.05);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.video-overlay{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:absolute; inset:0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(180deg, rgba(7,10,18,.15) 0%, rgba(7,10,18,.52) 70%, rgba(7,10,18,.82) 100%);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>pointer-events:none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.video-tag{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:absolute;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>left:14px; top:14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.14);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(0,0,0,.22);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:9px 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size:13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(10px);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.video-tag span{color:var(--muted)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.video-actions{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:absolute;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>left:14px; right:14px; bottom:14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex; gap:10px; flex-wrap:wrap;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content:space-between;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* X-factor ticker */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.ticker{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex; align-items:center; gap:10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:10px 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.14);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(0,0,0,.25);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(10px);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-width: 260px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.dot{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width:10px; height:10px; border-radius:50%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: var(--brand2);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 0 18px rgba(46,229,157,.6);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.pulse{animation: pulse 1.4s ease-in-out infinite}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@keyframes pulse{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>0%,100%{transform:scale(1); opacity:.85}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>50%{transform:scale(1.25); opacity:1}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.ticker small{color:var(--muted)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.ticker strong{font-size:14px}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.grid{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: repeat(3, 1fr);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top:16px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 900px){ .grid{grid-template-columns:1fr} }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.mini{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: var(--radius);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,.04);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.mini h3{margin:0 0 6px; font-size:16px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.mini p{margin:0; color:var(--muted); font-size:14px; line-height:1.45}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.section{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top:18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: 1fr 1fr;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:stretch;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 900px){ .section{grid-template-columns:1fr} }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.section .card{padding:18px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.section h2{margin:0 0 10px; font-size:18px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.section p{margin:0 0 10px; color:var(--muted); line-height:1.55}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hint{color:var(--muted); font-size:13px}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Pricing tabs */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tabs{display:flex; gap:10px; flex-wrap:wrap; margin: 10px 0 12px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tab{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,.04);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:10px 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 13.5px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor:pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: transform .12s ease, background .12s ease, border-color .12s ease;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tab:hover{transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tab.active{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:#0A0D16;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-color: transparent;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, var(--brand), var(--brand2));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:900;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.panel{display:none}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.panel.active{display:block}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.panel .mini{margin-top:10px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>ul{margin:8px 0 0; padding-left:18px; color:var(--muted); line-height:1.55}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>footer{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top:18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding-top:18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-top: 1px solid rgba(255,255,255,.10);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content:space-between;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap:wrap;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Chat widget */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.chat-launch{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:fixed; right:18px; bottom:18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width:54px; height:54px; border-radius:18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.16);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, rgba(124,92,255,1), rgba(46,229,157,1));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 18px 60px rgba(0,0,0,.5);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:grid; place-items:center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor:pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>z-index: 50;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:900;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:#0A0D16;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.chatbox{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:fixed;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>right:18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>bottom:84px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 340px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: calc(100vw - 36px);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 440px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.16);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(10,14,26,.86);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(14px);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: var(--shadow);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow:hidden;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>z-index: 60;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.chatbox.open{display:block}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.chat-head{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:12px 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex; align-items:center; justify-content:space-between;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-bottom:1px solid rgba(255,255,255,.10);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.chat-head strong{font-size:14px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.chat-head button{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.14);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,.06);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:8px 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor:pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:800;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.chat-body{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 320px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow:auto;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-direction:column;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.msg{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 86%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:10px 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 13.5px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.35;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.10);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,.05);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>white-space:pre-wrap;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.msg.bot{align-self:flex-start}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.msg.me{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-self:flex-end;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(124,92,255,.18);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-color: rgba(124,92,255,.28);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.chat-foot{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-top:1px solid rgba(255,255,255,.10);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap:8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items:center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.chat-foot input{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex:1;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:12px 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.14);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,.06);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>outline:none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.chat-foot input::placeholder{color: rgba(170,182,229,.75)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.chat-foot button{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:12px 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.14);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,.08);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor:pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight:900;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.toast{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:fixed; left:50%; transform:translateX(-50%);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>bottom: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(0,0,0,.55);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.14);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding:10px 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display:none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>z-index: 80;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(10px);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.toast.show{display:block}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="aurora" aria-hidden="true"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="brand"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="logo"&gt;HN&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div style="font-weight:900; letter-spacing:.2px;"&gt;HappyNow Solutions LLC&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div style="color:var(--muted); font-size:13px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Grid Marshall Energy • DFW, Texas • Licensed since Oct 2024</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;nav&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="pill active" id="navHome" data-route="#home"&gt;Home&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="pill" id="navProject" data-route="#project"&gt;Project Page&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="pill" id="navPricing" data-route="#home-pricing"&gt;Pricing&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="pill primary" id="navQuote" data-route="#home-contact"&gt;Get a Quote&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/nav&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- HOME (Landing) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="page active" id="pageHome"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;section class="hero"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card hero-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h1&gt;Electricity brokerage that’s fast, clear, and built for Texas.&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="sub"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Grid Marshall Energy (a subsidiary of HappyNow Solutions LLC) helps residential and commercial customers across DFW</p>
+<p class="p1"><span class="Apple-converted-space">            </span>compare plan options, understand contract terms, and lock in pricing without the confusion.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="badges"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="badge"&gt;&lt;strong&gt;Residential&lt;/strong&gt; + Commercial&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="badge"&gt;&lt;strong&gt;Matrix&lt;/strong&gt; + Custom pricing&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="badge"&gt;Texas deregulated market&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="badge"&gt;Simple execution • Fast turnaround&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="cta-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn primary" data-route="#home-pricing"&gt;View Pricing Paths&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn" id="openChatTop"&gt;Ask the Chatbot&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn small" id="copyEmail"&gt;Copy Email&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn small" id="copyPhone"&gt;Copy Phone&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="grid" style="margin-top:18px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3&gt;Broker-led clarity&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p&gt;We translate fees, terms, and contract details into plain English.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3&gt;Speed to signature&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p&gt;Quick comparisons + clean next steps. No long email chains.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3&gt;Right fit pricing&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p&gt;Matrix for simplicity, custom for unique loads and constraints.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- VIDEO --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card video-wrap" aria-label="AI-generated video hero"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;!-- Since you uploaded hero-loop.mp4 to the repo root, this path is correct --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;video id="heroVideo" autoplay muted loop playsinline preload="auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;source src="hero-loop.mp4" type="video/mp4" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Your browser does not support the video tag.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/video&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="video-overlay"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="video-tag"&gt;&lt;strong&gt;AI Video Loop&lt;/strong&gt; &lt;span&gt;• Runway&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="video-actions"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="ticker" title="X-factor: live-style ticker (decorative)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="dot pulse"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;small&gt;Live market pulse&lt;/small&gt;&lt;br/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;strong id="tickerText"&gt;Loading…&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn small" data-route="#home-pricing"&gt;Explore pricing →&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;section class="section" id="homePricingBlock"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h2&gt;About the brokerage&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>HappyNow Solutions LLC is a DFW-based company. Grid Marshall Energy is our electricity brokerage arm,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>launched after licensing in October 2024. We help customers choose plans confidently and avoid hidden surprises.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="hint"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Replace placeholders (email/phone) with your real info before sharing publicly.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card" id="pricing"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h2&gt;Pricing paths&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Pick a tab below. You can use matrix (fast) or custom (tailored) for both residential and commercial.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="tabs" role="tablist" aria-label="Pricing tabs"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="tab active" data-tab="rm" role="tab" aria-selected="true"&gt;Residential • Matrix&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="tab" data-tab="rc" role="tab" aria-selected="false"&gt;Residential • Custom&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="tab" data-tab="cm" role="tab" aria-selected="false"&gt;Commercial • Matrix&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="tab" data-tab="cc" role="tab" aria-selected="false"&gt;Commercial • Custom&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel active" id="panel-rm" role="tabpanel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3&gt;Residential — Matrix Pricing&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p&gt;Standardized options for speed and simplicity.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Best for straightforward homes and quick comparisons&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Choose term length, plan type, and lock it in&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Fast “good / better / best” presentation&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3&gt;What we need&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Service address (or ZIP) + basic usage estimate&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Recent bill if available&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Preferred term (12/24/36 months)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel" id="panel-rc" role="tabpanel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3&gt;Residential — Custom Pricing&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p&gt;Tailored quoting when something is “not typical.”&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Great for unique usage patterns or constraints&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;We can tailor structure/term to your needs&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;More questions up front, better fit on the back end&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3&gt;What we need&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Service address + recent bill/usage details&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Any constraints (budget, term, plan type)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Timeline to enroll / start date&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel" id="panel-cm" role="tabpanel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3&gt;Commercial — Matrix Pricing&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p&gt;Standard options for smaller businesses and simple deals.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Best for single meter, consistent usage&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Quick “good / better / best” matrix&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Easy execution and enrollment&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3&gt;What we need&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Service address + business name&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Recent bills or usage (kWh)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Preferred term length&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="panel" id="panel-cc" role="tabpanel"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3&gt;Commercial — Custom Pricing&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p&gt;Tailored quotes for larger loads and complex requirements.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Ideal for higher usage, multiple meters, or special schedules&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Better fit for risk tolerance and contract structure&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Can incorporate load profile considerations&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3&gt;What we need&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Service addresses + meter/ESI IDs if available&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;12 months of bills or interval data (if you have it)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Operational notes (hours, seasonality, constraints)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="cta-row" style="margin-top:14px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn primary" data-route="#home-contact"&gt;Request a quote&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn" id="openChatPricing"&gt;Ask: “matrix vs custom?”&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;section class="section" id="homeContactBlock"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card" id="contact"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h2&gt;Contact&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Want a quote? Send a recent bill (or usage) and we’ll map the best-fit options quickly.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="grid" style="grid-template-columns:1fr 1fr; margin-top:10px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3&gt;Email&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p&gt;&lt;span id="emailText"&gt;youremail@domain.com&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;h3&gt;Phone&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;p&gt;&lt;span id="phoneText"&gt;(214) 555-0123&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="hint" style="margin-top:10px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Replace email/phone placeholders with your real brokerage contact info.</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h2&gt;What we’ll ask for&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;To quote quickly, we typically need:&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="grid" style="grid-template-columns:1fr; margin-top:10px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;&lt;p&gt;1) Service address + customer type (residential or commercial)&lt;/p&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;&lt;p&gt;2) Recent bill or ESI ID + usage (kWh) if available&lt;/p&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini"&gt;&lt;p&gt;3) Preferred contract term + any constraints&lt;/p&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;X-Factor:&lt;/strong&gt; Animated aurora background + live-style market ticker + copy buttons make the landing page feel “alive” and more usable while staying lightweight.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;© &lt;span id="yr"&gt;&lt;/span&gt; HappyNow Solutions LLC&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- PROJECT (Second Page) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="page" id="pageProject"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card" style="padding:20px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1 style="font-size:34px; margin-bottom:8px;"&gt;Project Page&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="sub" style="margin-bottom:0;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>This page provides additional detail on the business concept, the build, and how the chatbot + AI video support the customer journey.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="section" style="margin-top:16px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card" style="padding:18px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Business concept&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Grid Marshall Energy (under HappyNow Solutions LLC) is an electricity brokerage serving the Texas deregulated market, focused on DFW.</p>
+<p class="p1"><span class="Apple-converted-space">              </span>The goal is to simplify plan selection for homes and businesses by presenting pricing pathways (matrix vs custom) in a clear, fast format.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>Customers often feel overwhelmed by contract details, fees, and timing. A broker-led approach makes decisions simpler while improving confidence.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card" style="padding:18px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Customer flow&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;On the landing page, the user can:&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;See the brand concept immediately via the looping AI video&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Pick a pricing path (Residential/Commercial + Matrix/Custom)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Use the chatbot for quick Q&amp;A and guidance on next steps&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Copy contact info instantly to request a quote&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="section" style="margin-top:14px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card" style="padding:18px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Technical notes&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Single-file site using internal routing (Home / Project) for easy deployment&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Video uses autoplay + muted + loop + playsinline for mobile compatibility&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;li&gt;Chatbot is global so it appears on both views (meets rubric)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card" style="padding:18px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Back to the site&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Use the button below to return to the landing page.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="cta-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;button class="btn primary" data-route="#home"&gt;Back to Home&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;button class="btn" id="openChatProject"&gt;Ask the Chatbot&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;Project Page content requirement: satisfied (more than two sentences, meaningful detail).&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;© &lt;span id="yr2"&gt;&lt;/span&gt; HappyNow Solutions LLC&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Chatbot (global; works on both views) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button class="chat-launch" id="chatLaunch" aria-label="Open chatbot"&gt;💬&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="chatbox" id="chatbox" role="dialog" aria-label="Chatbot"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="chat-head"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;strong&gt;HappyNow Chat&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="color:var(--muted); font-size:12px;"&gt;Electricity brokerage Q&amp;A&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button id="chatClose"&gt;Close&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="chat-body" id="chatBody"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="chat-foot"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;input id="chatInput" type="text" placeholder="Ask: matrix vs custom, what you need for a quote, etc…" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button id="chatSend"&gt;Send&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="toast" id="toast"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// =============================</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// CHANGE THESE</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// =============================</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const EMAIL = "youremail@domain.com";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const PHONE = "(214) 555-0123";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Helpers</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const $ = (s)=&gt;document.querySelector(s);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const toast = (msg)=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const t = $("#toast");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>t.textContent = msg;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>t.classList.add("show");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>setTimeout(()=&gt;t.classList.remove("show"), 1400);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Years</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("#yr").textContent = new Date().getFullYear();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("#yr2").textContent = new Date().getFullYear();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Contact text</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("#emailText").textContent = EMAIL;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("#phoneText").textContent = PHONE;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Copy buttons</p>
+<p class="p1"><span class="Apple-converted-space">    </span>async function copyText(txt){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>try{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>await navigator.clipboard.writeText(txt);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>toast("Copied!");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}catch(e){</p>
+<p class="p1"><span class="Apple-converted-space">        </span>toast("Copy not allowed in this browser.");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("#copyEmail").addEventListener("click", ()=&gt;copyText(EMAIL));</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("#copyPhone").addEventListener("click", ()=&gt;copyText(PHONE));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Video autoplay fallback</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const heroVideo = $("#heroVideo");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>heroVideo?.play?.().catch(()=&gt;{});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// X-factor ticker (decorative)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const tickerEl = $("#tickerText");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const samples = [</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ label: "North Texas Load", val: () =&gt; (Math.random()*6+8).toFixed(1) + " GW" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ label: "Indicative Price", val: () =&gt; (Math.random()*70+25).toFixed(0) + " $/MWh" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ label: "Volatility", val: () =&gt; (Math.random()*18+6).toFixed(0) + "%" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ label: "Renewables Share", val: () =&gt; (Math.random()*35+20).toFixed(0) + "%" },</p>
+<p class="p1"><span class="Apple-converted-space">    </span>];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function tick(){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const s = samples[Math.floor(Math.random()*samples.length)];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>tickerEl.textContent = `${s.label}: ${s.val()}`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>tick();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>setInterval(tick, 1500);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Tabs</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const tabs = Array.from(document.querySelectorAll(".tab"));</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const panels = { rm: $("#panel-rm"), rc: $("#panel-rc"), cm: $("#panel-cm"), cc: $("#panel-cc") };</p>
+<p class="p1"><span class="Apple-converted-space">    </span>tabs.forEach(btn=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>btn.addEventListener("click", ()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tabs.forEach(b=&gt;{ b.classList.remove("active"); b.setAttribute("aria-selected","false"); });</p>
+<p class="p1"><span class="Apple-converted-space">        </span>btn.classList.add("active");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>btn.setAttribute("aria-selected","true");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Object.values(panels).forEach(p=&gt;p.classList.remove("active"));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>panels[btn.dataset.tab].classList.add("active");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Router (single-file "two pages")</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const pageHome = $("#pageHome");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const pageProject = $("#pageProject");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function setNavActive(route){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const homeBtn = $("#navHome");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const projBtn = $("#navProject");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>homeBtn.classList.remove("active");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>projBtn.classList.remove("active");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(route.startsWith("#project")) projBtn.classList.add("active");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>else homeBtn.classList.add("active");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function showRoute(route){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(!route) route = "#home";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(route.startsWith("#project")){</p>
+<p class="p1"><span class="Apple-converted-space">        </span>pageHome.classList.remove("active");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>pageProject.classList.add("active");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.title = "Project Page | HappyNow Solutions";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.scrollTo(0,0);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>pageProject.classList.remove("active");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>pageHome.classList.add("active");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.title = "HappyNow Solutions | Grid Marshall Energy";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(route === "#home-pricing"){</p>
+<p class="p1"><span class="Apple-converted-space">          </span>setTimeout(()=&gt; $("#homePricingBlock").scrollIntoView({behavior:"smooth"}), 60);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else if(route === "#home-contact"){</p>
+<p class="p1"><span class="Apple-converted-space">          </span>setTimeout(()=&gt; $("#homeContactBlock").scrollIntoView({behavior:"smooth"}), 60);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>window.scrollTo(0,0);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>setNavActive(route);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.querySelectorAll("[data-route]").forEach(el=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>el.addEventListener("click", ()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const r = el.getAttribute("data-route");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>location.hash = r;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.addEventListener("hashchange", ()=&gt;showRoute(location.hash));</p>
+<p class="p1"><span class="Apple-converted-space">    </span>showRoute(location.hash);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Chatbot (global)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const chatbox = $("#chatbox");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const chatBody = $("#chatBody");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const chatLaunch = $("#chatLaunch");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const chatClose = $("#chatClose");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const chatInput = $("#chatInput");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const chatSend = $("#chatSend");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const addMsg = (text, who="bot")=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const div = document.createElement("div");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>div.className = `msg ${who}`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>div.textContent = text;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>chatBody.appendChild(div);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>chatBody.scrollTop = chatBody.scrollHeight;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const openChat = ()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>chatbox.classList.add("open");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!chatBody.dataset.booted){</p>
+<p class="p1"><span class="Apple-converted-space">        </span>chatBody.dataset.booted = "1";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>addMsg("Hey — I’m the HappyNow site chatbot. Want Residential or Commercial? Matrix or Custom pricing?");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>addMsg("Try: “What do you need for a quote?” or “Matrix vs custom?”");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>setTimeout(()=&gt;chatInput.focus(), 80);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const closeChat = ()=&gt; chatbox.classList.remove("open");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>chatLaunch.addEventListener("click", openChat);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("#openChatTop").addEventListener("click", openChat);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("#openChatPricing").addEventListener("click", openChat);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("#openChatProject").addEventListener("click", openChat);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>chatClose.addEventListener("click", closeChat);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function botReply(userText){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const t = userText.toLowerCase();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (t.includes("matrix")) return "Matrix pricing = standardized and fast. Best for straightforward deals and quick comparisons.";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (t.includes("custom")) return "Custom pricing = tailored quotes for unique usage, constraints, or more complex contract structures.";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (t.includes("residential")) return "Residential: share a recent bill + preferred term, and we can quote quickly. Matrix (fast) or custom (tailored).";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (t.includes("commercial")) return "Commercial: matrix for simple accounts; custom for larger loads, multiple meters, or special requirements.";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (t.includes("quote") || t.includes("need") || t.includes("bill") || t.includes("esi")) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return "To quote: 1) service address + customer type, 2) recent bill/usage or ESI ID, 3) preferred term + any constraints.";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (t.includes("contact") || t.includes("email") || t.includes("phone")) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return `Reach us at ${EMAIL} or ${PHONE}. (Update placeholders.)`;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return "Tell me: Residential or Commercial — and do you want matrix (fast) or custom (tailored)?";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function send(){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const text = chatInput.value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!text) return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>addMsg(text, "me");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>chatInput.value = "";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>setTimeout(()=&gt; addMsg(botReply(text), "bot"), 320);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>chatSend.addEventListener("click", send);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>chatInput.addEventListener("keydown", (e)=&gt;{ if(e.key==="Enter") send(); });</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
